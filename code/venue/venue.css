@@ -1,2 +1,8 @@
-/* A separate action uses your original OpenMap Button.png artwork. */
-.venue-link-area{text-align:center;background:var(--sage);padding:0 25px 36px}.venue-map-link{display:inline-flex;align-items:center;flex-direction:column;text-decoration:none;max-width:100%;gap:13px}.venue-map-link>img{display:block;width:210px;max-width:100%;height:auto}.venue-map-link>span{font:10px Arial,sans-serif;color:var(--ink);letter-spacing:.3px}.venue-map-link:hover>span{text-decoration:underline;text-underline-offset:4px}
+/* Coordinates follow the original 1080 x 1920 venue artwork.
+   The map ends at y=902; the gift heading starts around y=1100. */
+.venue-link-area{position:absolute;inset:0;pointer-events:none}
+.venue-map-link{position:absolute;top:48.5%;left:50%;transform:translateX(-50%);width:24%;min-width:80px;min-height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;pointer-events:auto;touch-action:manipulation;transition:filter .2s}
+.venue-map-link>img{display:block;width:100%;height:auto}
+.venue-map-link:hover{filter:brightness(1.06)}
+.venue-map-link:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:4px}
+.venue-map-link.is-fallback{border:1px solid var(--ink);border-radius:6px;background:#fff8ec;color:var(--ink);font:11px/1.4 Arial,sans-serif;text-align:center;padding:6px}

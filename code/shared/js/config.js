@@ -9,8 +9,9 @@ window.Wedding = {
     // This is a search for the venue printed in the artwork. Replace with your
     // exact Google Maps share link when available.
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Lucky%20Bright%20Restaurant%20598%20Phnom%20Penh",
-    music: "assets/music/Valentines Day.mp3",
-    musicVolume: 0.45,
+    // Increase the version when replacing the file under the same name.
+    music: "assets/music/Valentines Day.mp3?v=2",
+    musicVolume: 0.225, // 50% of the original volume (0.45).
     pdf: "assets/images/RS_Wedding_Digital_Invitation-PCover.pdf",
     seal: "assets/images/wax-seal-psd-mockup.png",
     mapButton: "assets/images/OpenMap Button.png",
