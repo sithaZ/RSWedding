@@ -1,0 +1,18 @@
+/* The envelope fills the viewport. Seal coordinates follow the centered,
+   proportionally scaled 1080 x 1920 cover, including desktop cropping. */
+.cover-screen{position:fixed;inset:0;z-index:30;background:var(--sage);transition:opacity .8s ease,visibility .8s ease;overflow:hidden}
+.cover-artwork{position:relative;width:100%;height:100%;transition:transform .8s ease}
+.cover-artwork>.page-artwork{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+.seal-button{position:absolute;left:calc(50% - max(100vw,56.25svh)*.025);top:calc(50% - max(177.777778vw,100svh)*.033);transform:translate(-50%,-50%);width:max(18vw,10.125svh);aspect-ratio:1;border:0;padding:0;background:transparent;filter:drop-shadow(0 5px 6px #34422c55);transition:filter .2s}
+.seal-button:hover{filter:drop-shadow(0 8px 10px #34422c80)}.seal-button>img{width:100%;height:auto;display:block}.seal-fallback{background:#c9ad66;border-radius:50%;border:2px solid #9e7c38;color:#34422c;font:14px Georgia,serif}.cover-screen.is-opening{opacity:0;visibility:hidden;pointer-events:none}.cover-screen.is-opening .cover-artwork{transform:translateY(-20px) scale(1.02)}
+/* Dynamic height keeps the seal aligned when mobile browser bars change. */
+.cover-artwork{--art-width:max(100vw,56.25svh);--art-height:max(177.777778vw,100svh)}
+.seal-button{left:calc(50% - var(--art-width)*.025);top:calc(50% - var(--art-height)*.033);width:calc(var(--art-width)*.18);min-width:44px;min-height:44px;touch-action:manipulation}
+@supports(height:100dvh){.cover-screen{height:100dvh}.cover-artwork{--art-width:max(100vw,56.25dvh);--art-height:max(177.777778vw,100dvh)}}
+/* Show the complete envelope at a comfortable desktop size. */
+@media screen and (min-width:761px){
+  .cover-screen{display:grid;place-items:center}
+  .cover-artwork{width:min(540px,56.25svh);height:auto;aspect-ratio:9/16}
+  .cover-artwork>.page-artwork{object-fit:contain}
+  .seal-button{left:47.5%;top:46.7%;width:18%}
+}
